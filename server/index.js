@@ -47,6 +47,51 @@ app.post("/books", async (req, res) => {
 	}
 });
 
+//Route to get all books
+app.get("/books", async (req, res) => {
+	try {
+		const books = await Book.find({});
+		return res.status(200).send({
+			count: books.length,
+			data: books,
+		});
+	} catch (error) {
+		res.status(400).send(error);
+	}
+});
+// Route to get a book by id
+app.get("/books/:id", async (req, res) => {
+	const { id } = req.params;
+	try {
+		const book = await Book.findById(id);
+		res.status(200).send(book);
+	} catch (error) {
+		res.status(404).send(error);
+	}
+});
+// Route to update a book
+app.put("/books/:id", async (req, res) => {
+	try {
+		const { id } = req.params;
+		const book = await Book.findByIdAndUpdate(id, req.body);
+		if (book) {
+			res.status(200).send(`${book.title} updated successfully`);
+		} else {
+			res.status(404).send("Book not found");
+		}
+	} catch (error) {}
+});
+
+//Route to delete a book
+app.delete("/books/:id", async (req, res) => {
+	try {
+		const { id } = req.params;
+		const book = await Book.findByIdAndDelete(id);
+		res.status(200).send(`${book.title} is deleted`);
+	} catch (error) {
+		res.status(400).send("Book not found");
+	}
+});
 // Connect to MongoDB and start the server
 mongoose
 	.connect(connectionUrl)
