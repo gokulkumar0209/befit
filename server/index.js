@@ -2,13 +2,13 @@
 import express from "express"; // Framework for building web applications
 import dotenv from "dotenv"; // To load environment variables from a .env file
 import mongoose from "mongoose"; // To interact with MongoDB
-import cors from "cors"
-import { PORT } from "./config.js"; // Import PORT from configuration file
-import { Book } from "./models/bookModel.js"; // Import the Book model
+import cors from "cors";
+
+
 import booksRoute from "./routes/booksRoute.js";
 // Initialize Express application
 const app = express();
-app.use(cors({origin:"*"}))
+app.use(cors({ origin: "*" }));
 // Middleware to parse JSON bodies in incoming requests
 app.use(express.json());
 app.use("/books", booksRoute);
@@ -17,6 +17,7 @@ dotenv.config({ path: "./.env" });
 
 // Get the MongoDB connection URL from environment variables
 const connectionUrl = process.env.CONNECTION_URL;
+const PORT = process.env.PORT;
 
 // Define a simple route to check if the server is running
 app.get("/", (req, res) => {
