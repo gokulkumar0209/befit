@@ -8,7 +8,7 @@ import cors from "cors";
 import booksRoute from "./routes/booksRoute.js";
 // Initialize Express application
 const app = express();
-app.use(cors({ origin: "*" }));
+app.use(cors());
 // Middleware to parse JSON bodies in incoming requests
 app.use(express.json());
 app.use("/books", booksRoute);
