@@ -24,43 +24,29 @@ function Home() {
 			});
 	}, []);
 	return (
-		<div>
-			<div>
-				<h1>Books List</h1>
-				<Link to="/books/create">
-					<MdOutlineAddBox />
-				</Link>
-			</div>
+		<div className=" bg-gray-200">
 			{loading ? (
 				<Spinner />
 			) : (
 				<table className="min-w-full divide-y divide-gray-200">
-					<thead className="bg-gray-50">
-						<tr>
-							<th className=" pl-10 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-								No
-							</th>
-							<th className=" pr-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-								Title
-							</th>
-							<th className="pr-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-								Author
-							</th>
-							<th className="pr-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-								Operations
-							</th>
+					<thead>
+						<tr className=" text-blue-900 uppercase text-xs font-medium">
+							<th className=" pl-10 py-3 text-left  tracking-wider">No</th>
+							<th className=" pr-6 py-3 text-left tracking-wider">Title</th>
+							<th className="pr-6 py-3 text-left  tracking-wider">Author</th>
+							<th className="pr-4 py-3 text-left tracking-wider">Options</th>
 						</tr>
 					</thead>
 					<tbody>
 						{books.map((book, index) => (
-							<tr>
-								<td className="pl-10 py-4 text-left text-xs font-medium  uppercase tracking-wider">
+							<tr className="text-xs font-medium  uppercase">
+								<td className="pl-10 py-4 text-left  tracking-wider">
 									{index + 1}
 								</td>
-								<td className="pr-6 py-4 text-left text-xs font-medium  uppercase tracking-wider">
+								<td className="pr-6 py-4 text-left  tracking-wider">
 									{book.title}
 								</td>
-								<td className="pr-6 py-4 text-left text-xs font-medium uppercase tracking-wider">
+								<td className="pr-6 py-4 text-left tracking-wider">
 									{book.author}
 								</td>
 								<td>
