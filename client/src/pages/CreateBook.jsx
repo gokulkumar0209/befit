@@ -1,11 +1,12 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
-import Backbutton from "../components/Backbutton";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CreateBook() {
 	const [title, setTitle] = useState("");
 	const [author, setAuthor] = useState("");
 	const [year, setYear] = useState("");
+	
 	const handleTitle = (e) => {
 		setTitle(e.target.value);
 	};
@@ -31,52 +32,43 @@ function CreateBook() {
 	};
 
 	return (
-		<div className=" flex items-center h-screen  bg-gray-400">
-			<div className="">
-				<Backbutton />
-				CreateBook
-				<form onSubmit={handleSubmit}>
-					<div className="border-2 border-solid border-blue-600 bg-blue-100 rounded-md  ml-10 h-40 p-4 flex items-center">
-						<div className="space-y-2">
-							<div className=" flex">
-								<span className="w-24">Title</span>
-								<span>
-									<input
-										className=" bg-slate-400"
-										type="textbox"
-										onChange={handleTitle}
-										value={title}
-									></input>
-								</span>
-							</div>
-							<div className="flex">
-								<span className="w-24">Author</span>
-								<span>
-									<input
-										className=" bg-slate-400"
-										type="textbox"
-										onChange={handleAuthor}
-										value={author}
-									></input>
-								</span>
-							</div>
-							<div className="flex">
-								<span className="w-24">Year</span>
-								<span>
-									<input
-										className=" bg-slate-400"
-										type="number"
-										onChange={handleYear}
-										value={year}
-									></input>
-								</span>
-							</div>
-							<div></div>
-							<button type="submit" className=" bg-red-100">
-								Submit
-							</button>
-						</div>
+		<div className="flex items-center justify-center h-screen w-full bg-gray-400">
+			<div className="bg-blue-100 border-2 border-blue-600 rounded-md p-6 w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+				<h2 className="text-center text-2xl mb-4">Create Book</h2>
+				<form onSubmit={handleSubmit} className="space-y-4">
+					<div className="flex flex-col">
+						<label className="mb-1">Title</label>
+						<input
+							className="p-2 border rounded bg-gray-200"
+							type="text"
+							onChange={handleTitle}
+							value={title}
+							placeholder="Enter the book title"
+						/>
 					</div>
+					<div className="flex flex-col">
+						<label className="mb-1">Author</label>
+						<input
+							className="p-2 border rounded bg-gray-200"
+							type="text"
+							onChange={handleAuthor}
+							value={author}
+							placeholder="Enter the author's name"
+						/>
+					</div>
+					<div className="flex flex-col">
+						<label className="mb-1">Year</label>
+						<input
+							className="p-2 border rounded bg-gray-200"
+							type="number"
+							onChange={handleYear}
+							value={year}
+							placeholder="Enter the publication year"
+						/>
+					</div>
+					<button type="submit" className="w-full p-2 bg-blue-500 text-white rounded">
+						Submit
+					</button>
 				</form>
 			</div>
 		</div>
