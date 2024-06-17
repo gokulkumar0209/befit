@@ -24,43 +24,50 @@ function ShowBook() {
 	}, [id]);
 	// console.log(book);
 	return (
-		<div className=" bg-gray-300 h-screen">
-			<Backbutton />
-			{loading ? (
-				<Spinner />
-			) : (
-				<div className="border-2 border-solid border-blue-600 bg-blue-100 rounded-md w-1/3 ml-10 h-40 p-4 flex items-center">
-					<div className="space-y-2">
-						<div className="flex">
-							<span className="text-lg font-semibold text-blue-700 w-24">
+		<div className=" flex  items-center  justify-center bg-gray-300 h-screen w-full">
+			<div className="  border-2 border-solid border-blue-600 bg-blue-100 p-6 rounded-md w-full max-w-md md:max-w-md lg:max-w-lg xl:max-w-xl">
+				{loading ? (
+					<Spinner />
+				) : (
+					<div className="space-y-2 pl-6">
+						<div className="grid grid-cols-12 items-center gap-4 ">
+							<span className="text-lg font-semibold text-blue-700 col-span-2 text-right">
 								Title:
 							</span>
-							<span className="text-lg text-gray-900">{book.title}</span>
+							<span className="text-lg text-gray-900  col-span-10">
+								{book.title}
+							</span>
 						</div>
 
-						<div className="flex">
-							<span className="text-lg font-semibold text-blue-700 w-24">
+						<div className="grid grid-cols-12 items-center gap-4">
+							<span className="text-lg font-semibold text-blue-700 col-span-2 text-right">
 								Author:
 							</span>
-							<span className="text-lg text-gray-900">{book.author}</span>
-						</div>
-
-						<div className="flex">
-							<span className="text-lg font-semibold text-blue-700 w-24">
-								Year:
+							<span className="text-lg text-gray-900  col-span-10">
+								{book.author}
 							</span>
-							<span className="text-lg text-gray-900">{book.year}</span>
 						</div>
 
-						<div className="flex">
-							<span className="text-lg font-semibold text-blue-700 w-24">
+						<div className="grid grid-cols-12  items-center gap-4">
+							<span className="text-lg font-semibold text-blue-700 col-span-2 text-right">
+								Year:
+							</span> 
+							<span className="text-lg text-gray-900  col-span-10">
+								{book.year}
+							</span>
+						</div>
+
+						<div className="grid grid-cols-12 items-center gap-4">
+							<span className="text-lg font-semibold text-blue-700 col-span-2 text-right">
 								ID:
 							</span>
-							<span className="text-lg text-gray-900">{book._id}</span>
+							<span className="text-lg text-gray-900  col-span-10">
+								{book._id}
+							</span>
 						</div>
 					</div>
-				</div>
-			)}
+				)}
+			</div>
 		</div>
 	);
 }

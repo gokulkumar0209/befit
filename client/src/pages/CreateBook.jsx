@@ -6,7 +6,7 @@ function CreateBook() {
 	const [title, setTitle] = useState("");
 	const [author, setAuthor] = useState("");
 	const [year, setYear] = useState("");
-	
+
 	const handleTitle = (e) => {
 		setTitle(e.target.value);
 	};
@@ -66,7 +66,10 @@ function CreateBook() {
 							placeholder="Enter the publication year"
 						/>
 					</div>
-					<button type="submit" className="w-full p-2 bg-blue-500 text-white rounded">
+					<button
+						type="submit"
+						className="w-full p-2 bg-blue-500 text-white rounded"
+					>
 						Submit
 					</button>
 				</form>
