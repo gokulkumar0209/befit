@@ -64,35 +64,51 @@ function EditBook() {
 		}
 	};
 	return (
-		<div>
-			<Backbutton />
-			EditBook
-			<form onSubmit={handleSubmit}>
-				<input
-					type="textbox"
-					className=" bg-blue-200"
-					name="title"
-					value={book.title}
-					onChange={handleChange}
-				></input>
-				<input
-					type="textbox"
-					className=" bg-blue-200"
-					name="author"
-					value={book.author}
-					onChange={handleChange}
-				></input>
-				<input
-					type="Number"
-					className=" bg-blue-200"
-					name="year"
-					value={book.year}
-					onChange={handleChange}
-				></input>
-				<button type="submit" className="bg-red-300">
-					Submit
-				</button>
-			</form>
+		<div className=" uppercase flex justify-center items-center h-screen w-full bg-gray-200">
+			<div className=" bg-blue-200 p-6 border-2 border-blue-700 rounded-xl ">
+				<form onSubmit={handleSubmit}>
+					<div className="space-y-2">
+						<div className="  grid grid-cols-2">
+							<label>Title</label>
+							<input
+								type="textbox"
+								className=" bg-blue-100 rounded-md px-2"
+								name="title"
+								value={book.title}
+								onChange={handleChange}
+							></input>
+						</div>
+						<div className=" grid grid-cols-2 ">
+							<label>Author</label>
+							<input
+								type="textbox"
+								className=" bg-blue-100 rounded-md px-2"
+								name="author"
+								value={book.author}
+								onChange={handleChange}
+							></input>
+						</div>
+						<div className="grid grid-cols-2">
+							<label>Year</label>
+							<input
+								type="Number"
+								className=" bg-blue-100 rounded-md px-2"
+								name="year"
+								value={book.year}
+								onChange={handleChange}
+							></input>
+						</div>
+						<div className="">
+							<button
+								type="submit"
+								className="bg-red-400 uppercase rounded-sm px-2"
+							>
+								Submit
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
 	);
 }
