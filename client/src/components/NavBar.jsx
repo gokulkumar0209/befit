@@ -13,11 +13,13 @@ function NavBar() {
 						</Link>
 					</div>
 					<div className=" bg-blue-900 w-16 text-white text-center rounded-md">
-						<Link to="/books/create"><h1 className="font-semibold">New</h1></Link>
+						<Link to="/books/create">
+							<h1 className="font-semibold">New</h1>
+						</Link>
 					</div>
 				</div>
 				<div className="mr-10 mt-3 bg-blue-900 text-center text-white w-16 rounded-md">
-					<h1  className=" font-semibold">Login</h1>
+					<h1 className=" font-semibold">Login</h1>
 				</div>
 			</div>
 		</div>
