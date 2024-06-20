@@ -18,9 +18,9 @@ function NavBar() {
 						</Link>
 					</div>
 				</div>
-				<div className="mr-10 mt-3 bg-blue-900 text-center text-white w-16 rounded-md">
+				{/* <div className="mr-10 mt-3 bg-blue-900 text-center text-white w-16 rounded-md">
 					<h1 className=" font-semibold">Login</h1>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);
