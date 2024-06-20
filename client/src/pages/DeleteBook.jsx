@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import Backbutton from "../components/Backbutton";
 
 function DeleteBook() {
 	const [book, setBook] = useState({});
 	const { id } = useParams();
 	const navigate = useNavigate();
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -18,54 +18,45 @@ function DeleteBook() {
 		};
 		fetchData();
 	}, [id]);
+
 	const handleDelete = async () => {
 		try {
-			const deleteBook = await axios.delete(
-				`http://localhost:3000/books/${id}`
-			);
+			await axios.delete(`http://localhost:3000/books/${id}`);
 			console.log("deleted");
 			navigate("/");
 		} catch (error) {
 			console.log(error);
 		}
 	};
+
 	return (
-		<div className="flex justify-center items-center h-screen w-full">
-			<div className="border-2 border-solid border-blue-600 bg-blue-100 rounded-md p-10 space-y-2">
-				<div className=" grid grid-cols-12 items-center gap-4">
-					<span className=" text-lg font-semibold text-blue-700  text-right col-span-2">
-						Title:
-					</span>
-					<span className="text-lg text-gray-900 col-span-10">
-						{book.title}
-					</span>
-				</div>
-
-				<div className=" grid grid-cols-12  items-center gap-4">
-					<span className="text-lg font-semibold text-blue-700  text-right col-span-2">
-						Author:
-					</span>
-					<span className="text-lg text-gray-900 col-span-10">
-						{book.author}
-					</span>
-				</div>
-
-				<div className="grid grid-cols-12 items-center gap-4">
-					<span className="text-lg font-semibold text-blue-700  text-right col-span-2">
-						Year:
-					</span>
-					<span className="text-lg text-gray-900 col-span-10">{book.year}</span>
-				</div>
-
-				<div className="grid grid-cols-12 items-center gap-4">
-					<span className="text-lg font-semibold text-blue-700  col-span-2 text-right">
-						ID:
-					</span>
-					<span className="text-lg text-gray-900 col-span-10">{book._id}</span>
-				</div>
-
-				<div className="w-full">
-					<button onClick={handleDelete} className=" bg-red-400 w-full ">
+		<div className="flex items-center justify-center min-h-screen w-full bg-gray-100">
+			<div className="bg-white border border-gray-300 rounded-md p-6 shadow-lg w-full max-w-md md:max-w-lg lg:max-w-xl">
+				<h2 className="text-center text-2xl font-semibold mb-4 text-blue-800">Delete Book</h2>
+				<div className="space-y-4">
+					<div className="grid grid-cols-12 items-center gap-4">
+						<span className="text-lg font-semibold text-blue-700 text-right col-span-3">Title:</span>
+						<span className="text-lg text-gray-900 col-span-9">{book.title}</span>
+					</div>
+					<div className="grid grid-cols-12 items-center gap-4">
+						<span className="text-lg font-semibold text-blue-700 text-right col-span-3">Author:</span>
+						<span className="text-lg text-gray-900 col-span-9">{book.author}</span>
+					</div>
+					<div className="grid grid-cols-12 items-center gap-4">
+						<span className="text-lg font-semibold text-blue-700 text-right col-span-3">Year:</span>
+						<span className="text-lg text-gray-900 col-span-9">{book.year}</span>
+					</div>
+					<div className="grid grid-cols-12 items-center gap-4">
+						<span className="text-lg font-semibold text-blue-700 text-right col-span-3">ID:</span>
+						<span className="text-lg text-gray-900 col-span-9">{book._id}</span>
+					</div>
+					<p className="text-center text-lg text-red-600 font-semibold">
+						Are you sure you want to delete this book?
+					</p>
+					<button
+						onClick={handleDelete}
+						className="w-full py-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-md text-lg transition duration-300"
+					>
 						Delete
 					</button>
 				</div>

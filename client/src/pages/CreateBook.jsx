@@ -32,14 +32,14 @@ function CreateBook() {
 	};
 
 	return (
-		<div className="flex items-center justify-center h-screen w-full bg-gray-400">
-			<div className="bg-blue-100 border-2 border-blue-600 rounded-md p-6 w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
-				<h2 className="text-center text-2xl mb-4">Create Book</h2>
-				<form onSubmit={handleSubmit} className="space-y-4">
+		<div className="flex items-center justify-center min-h-screen w-full bg-gray-100">
+			<div className="bg-white border-2 border-gray-200 shadow-md rounded-md p-8 w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+				<h2 className="text-center text-3xl font-bold mb-6 text-gray-700">Create Book</h2>
+				<form onSubmit={handleSubmit} className="space-y-6">
 					<div className="flex flex-col">
-						<label className="mb-1">Title</label>
+						<label className="mb-2 text-lg font-medium text-gray-600">Title</label>
 						<input
-							className="p-2 border rounded bg-gray-200"
+							className="p-3 border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
 							type="text"
 							onChange={handleTitle}
 							value={title}
@@ -47,9 +47,9 @@ function CreateBook() {
 						/>
 					</div>
 					<div className="flex flex-col">
-						<label className="mb-1">Author</label>
+						<label className="mb-2 text-lg font-medium text-gray-600">Author</label>
 						<input
-							className="p-2 border rounded bg-gray-200"
+							className="p-3 border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
 							type="text"
 							onChange={handleAuthor}
 							value={author}
@@ -57,9 +57,9 @@ function CreateBook() {
 						/>
 					</div>
 					<div className="flex flex-col">
-						<label className="mb-1">Year</label>
+						<label className="mb-2 text-lg font-medium text-gray-600">Year</label>
 						<input
-							className="p-2 border rounded bg-gray-200"
+							className="p-3 border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
 							type="number"
 							onChange={handleYear}
 							value={year}
@@ -68,7 +68,7 @@ function CreateBook() {
 					</div>
 					<button
 						type="submit"
-						className="w-full p-2 bg-blue-500 text-white rounded"
+						className="w-full p-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-300"
 					>
 						Submit
 					</button>
