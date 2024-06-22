@@ -26,13 +26,13 @@ function Home() {
 	}, []);
 
 	return (
-		<div className="min-h-screen bg-gray-100 flex justify-center items-center py-10">
+		<div className=" ">
 			{loading ? (
 				<Spinner />
 			) : (
-				<div className="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-5xl">
-					<table className="min-w-full divide-y divide-gray-200">
-						<thead className="bg-blue-50">
+				<div className="">
+					<table className=" w-full">
+						<thead className="">
 							<tr className="text-blue-900 uppercase text-xs font-semibold text-left">
 								<th className="px-6 py-3">No</th>
 								<th className="px-6 py-3">Title</th>
@@ -40,7 +40,7 @@ function Home() {
 								<th className="px-6 py-3">Options</th>
 							</tr>
 						</thead>
-						<tbody className="bg-white divide-y divide-gray-200">
+						<tbody className="bg-white ">
 							{books.map((book, index) => (
 								<tr key={book._id} className="text-sm text-gray-700">
 									<td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
@@ -50,21 +50,15 @@ function Home() {
 										<div className="flex space-x-3 text-blue-600">
 											<Link
 												to={`/books/details/${book._id}`}
-												className="hover:text-blue-800"
 												title="View Details"
 											>
 												<BsInfoCircle size={20} />
 											</Link>
-											<Link
-												to={`/books/edit/${book._id}`}
-												className="hover:text-blue-800"
-												title="Edit Book"
-											>
+											<Link to={`/books/edit/${book._id}`} title="Edit Book">
 												<AiOutlineEdit size={20} />
 											</Link>
 											<Link
 												to={`/books/delete/${book._id}`}
-												className="hover:text-blue-800"
 												title="Delete Book"
 											>
 												<MdOutlineDelete size={20} />
